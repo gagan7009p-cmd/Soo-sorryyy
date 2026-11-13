@@ -1,0 +1,584 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Us Again ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+:root {
+  --pink: #f5a9bd;
+  --dark: #713f53;
+  --light: #fff6f7;
+  --rose: #e985a5;
+  --cream: #fffaf4;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--light);
+  color: var(--dark);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+button { font: inherit; cursor: pointer; }
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(145deg,#fff0f3,#ffe3eb,#fff8f3);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "♡";
+  position: absolute;
+  font-size: 260px;
+  color: #ffffff70;
+  top: 10px;
+  right: -50px;
+}
+
+.eyebrow {
+  letter-spacing: 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #b86d88;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+}
+
+.hero h1 {
+  font-size: clamp(42px,9vw,75px);
+  margin: 20px 0 12px;
+  line-height: 1.12;
+}
+
+.hero p {
+  max-width: 420px;
+  line-height: 1.8;
+  color: #966779;
+}
+
+.primary {
+  border: 0;
+  background: var(--rose);
+  color: white;
+  padding: 15px 27px;
+  border-radius: 40px;
+  margin-top: 25px;
+  box-shadow: 0 8px 22px #e985a540;
+  transition: .25s;
+}
+
+.primary:hover { transform: translateY(-3px); }
+
+section {
+  padding: 85px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-heading h2 {
+  font-size: clamp(32px,6vw,46px);
+  margin: 10px 0;
+}
+
+.section-heading p {
+  color: #a47c8a;
+  line-height: 1.7;
+}
+
+.hidden { display: none !important; }
+
+.content {
+  animation: appear .8s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Navigation */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fffaf2ed;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 13px 8px;
+  border-bottom: 1px solid #f6dce4;
+}
+
+nav a {
+  color: #956779;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 8px 11px;
+  border-radius: 20px;
+}
+
+nav a:hover { background: #fce4eb; }
+
+/* Memories */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 17px;
+}
+
+.memory {
+  background: white;
+  padding: 10px;
+  border-radius: 13px;
+  box-shadow: 0 5px 20px #a45d7010;
+  transform: rotate(-1deg);
+}
+
+.memory:nth-child(even) { transform: rotate(1deg); }
+
+.memory img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #fce4eb;
+}
+
+.memory p {
+  text-align: center;
+  font-family: 'Playfair Display',serif;
+  font-style: italic;
+  margin: 12px 2px 5px;
+}
+
+/* Timeline */
+
+.timeline {
+  border-left: 2px solid #efb4c6;
+  margin: 20px auto;
+  max-width: 600px;
+  padding-left: 25px;
+}
+
+.event {
+  position: relative;
+  margin-bottom: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px #a45d7010;
+}
+
+.event::before {
+  content: "♡";
+  position: absolute;
+  left: -37px;
+  top: 20px;
+  color: #dc82a0;
+  font-size: 19px;
+}
+
+.event small { color: #c07c94; }
+
+.event h3 { margin: 8px 0; font-size: 22px; }
+.event p { color: #947281; line-height: 1.7; margin-bottom: 0; }
+
+/* Letter */
+
+.letter-box {
+  background: var(--cream);
+  border: 1px solid #f5d9df;
+  border-radius: 20px;
+  padding: 30px 23px;
+  text-align: center;
+  max-width: 650px;
+  margin: auto;
+}
+
+.letter-box h3 { font-size: 27px; }
+
+#letter {
+  text-align: left;
+  line-height: 2;
+  white-space: pre-line;
+  margin-top: 25px;
+  color: #805768;
+}
+
+/* Random message */
+
+.message-box {
+  background: linear-gradient(135deg,#ffe3eb,#fff4e9);
+  border-radius: 25px;
+  text-align: center;
+  padding: 40px 22px;
+}
+
+#randomMessage {
+  font-family: 'Playfair Display',serif;
+  font-size: 25px;
+  line-height: 1.5;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Promises */
+
+.promises {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 15px;
+}
+
+.promise {
+  background: white;
+  border-radius: 18px;
+  padding: 22px 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px #a45d7010;
+}
+
+.promise span { font-size: 27px; }
+.promise p { line-height: 1.6; font-size: 14px; }
+
+footer {
+  text-align: center;
+  padding: 45px 20px;
+  background: #ffe8ed;
+  line-height: 1.8;
+}
+
+footer h2 { font-size: 29px; }
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: floatUp 5s linear forwards;
+  z-index: 20;
+  color: #e985a5;
+}
+
+@keyframes floatUp {
+  to { transform: translateY(-110vh) rotate(30deg); opacity: 0; }
+}
+
+@media(max-width:550px) {
+  section { padding: 65px 18px; }
+  .gallery { gap: 10px; }
+  .promises { grid-template-columns: 1fr; }
+  nav { gap: 2px; }
+  nav a { font-size: 11px; padding: 8px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- WELCOME SCREEN -->
+
+<header class="hero" id="home">
+  <span class="eyebrow">A little something for you ♡</span>
+  <h1>A Little<br><i>Us Again.</i></h1>
+  <p>
+    Not a perfect story, not a perfect couple.
+    Just two people who still have so many beautiful
+    memories to make together.
+  </p>
+  <button class="primary" onclick="openSite()">
+    Open our little world ♡
+  </button>
+  <p style="font-size:12px;margin-top:35px">
+    Made with love, just for you.
+  </p>
+</header>
+
+<main id="mainContent" class="hidden">
+
+<nav>
+  <a href="#memories">Memories</a>
+  <a href="#timeline">Our story</a>
+  <a href="#letterSection">Letter</a>
+  <a href="#messages">Little notes</a>
+  <a href="#promises">Promises</a>
+</nav>
+
+<!-- MEMORIES -->
+
+<section id="memories">
+  <div class="section-heading">
+    <span class="eyebrow">Our little collection</span>
+    <h2>Moments that feel like home ♡</h2>
+    <p>Some memories deserve to stay forever.</p>
+  </div>
+
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<!-- TIMELINE -->
+
+<section id="timeline">
+  <div class="section-heading">
+    <span class="eyebrow">Chapter by chapter</span>
+    <h2>Our little story</h2>
+    <p>From the first hello to all the hellos still waiting for us.</p>
+  </div>
+
+  <div class="timeline" id="timelineContent"></div>
+</section>
+
+<!-- SECRET LETTER -->
+
+<section id="letterSection">
+  <div class="section-heading">
+    <span class="eyebrow">Something from my heart</span>
+    <h2>A letter for you 💌</h2>
+    <p>There's something I wanted you to read.</p>
+  </div>
+
+  <div class="letter-box">
+    <div style="font-size:45px">💌</div>
+    <h3>A little letter, just for you</h3>
+    <p style="color:#a47c8a">Written with feelings I don't always know how to express.</p>
+
+    <button class="primary" onclick="showLetter()">
+      Open my letter
+    </button>
+
+    <div id="letter" class="hidden"></div>
+  </div>
+</section>
+
+<!-- RANDOM MESSAGES -->
+
+<section id="messages">
+  <div class="section-heading">
+    <span class="eyebrow">A tiny surprise</span>
+    <h2>Whenever you need a smile ♡</h2>
+    <p>Here's a little reminder from me.</p>
+  </div>
+
+  <div class="message-box">
+    <div id="randomMessage">You are still my favourite notification. ♡</div>
+    <button class="primary" onclick="newMessage()">
+      Another little message ✨
+    </button>
+  </div>
+</section>
+
+<!-- PROMISES -->
+
+<section id="promises">
+  <div class="section-heading">
+    <span class="eyebrow">Not just words</span>
+    <h2>Little promises for us</h2>
+    <p>Small things that make a relationship beautiful.</p>
+  </div>
+
+  <div class="promises" id="promiseContent"></div>
+</section>
+
+<footer>
+  <div style="font-size:35px">♡</div>
+  <h2>Here's to our next chapters.</h2>
+  <p>We don't need a perfect story.<br>
+  We just need to keep writing ours together.</p>
+  <p style="font-family:'Playfair Display',serif;font-style:italic">
+    Always a little us. ♡
+  </p>
+</footer>
+
+</main>
+
+<script>
+
+// ======================================
+// PERSONALIZE YOUR WEBSITE HERE
+// ======================================
+
+const memories = [
+  {
+    image: "photos/photo1.jpg",
+    caption: "One of my favourite moments ♡"
+  },
+  {
+    image: "photos/photo2.jpg",
+    caption: "A memory I would relive"
+  },
+  {
+    image: "photos/photo3.jpg",
+    caption: "My favourite person"
+  },
+  {
+    image: "photos/photo4.jpg",
+    caption: "Just us being us"
+  }
+];
+
+const timeline = [
+  {
+    date: "20 February",
+    title: "The beginning ♡",
+    text: "The day our little story started. A date that will always mean something special to me."
+  },
+  {
+    date: "Our favourite memories",
+    title: "All those little moments",
+    text: "The silly talks, random laughs, cute conversations and memories that became ours."
+  },
+  {
+    date: "Today",
+    title: "Still choosing us",
+    text: "Learning to understand each other better, growing together and making space for more happiness."
+  },
+  {
+    date: "Our future",
+    title: "Many chapters left",
+    text: "More memories, more laughter, more adventures and a thousand little moments still waiting."
+  }
+];
+
+const letter = `
+My favourite person,
+
+I don't really know where to begin, but I wanted to make something special for you.
+
+I know things haven't felt exactly the same lately. Sometimes we get caught up in our routines, misunderstand each other or forget to show the little things that once came so naturally.
+
+But I don't want us to stop making efforts.
+
+I don't expect every day to be perfect. I don't expect us to never disagree. I just want us to keep talking, understanding each other and making time for the little things.
+
+I still want to know about your day, listen to your random stories, make you laugh over silly things and create memories that we'll talk about years later.
+
+I don't want us to chase the past. I want us to create something even more beautiful from here.
+
+Thank you for being a part of my story.
+
+Let's make our next chapters beautiful, one little moment at a time.
+
+With lots of love,
+Your favourite human ♡
+`;
+
+const messages = [
+  "You're still my favourite notification. ♡",
+  "I hope you never forget how special you are to me.",
+  "I still want to hear every little detail about your day.",
+  "Let's never stop being silly together.",
+  "You make ordinary days feel a little more special.",
+  "I choose communication over assumptions, always.",
+  "We have so many beautiful memories left to create.",
+  "Just a reminder: I'm glad our paths crossed. ♡",
+  "I hope we always find reasons to laugh together.",
+  "One day at a time, one memory at a time. ❤️"
+];
+
+const promises = [
+  ["💬","To communicate instead of assuming."],
+  ["🫶","To listen and understand each other."],
+  ["🌷","To never take the little things for granted."],
+  ["☀️","To make time for each other."],
+  ["🤍","To respect each other's feelings."],
+  ["✨","To keep making new memories together."]
+];
+
+// ======================================
+// WEBSITE FUNCTIONS
+// ======================================
+
+function openSite() {
+  document.getElementById("mainContent").classList.remove("hidden");
+  document.getElementById("mainContent").classList.add("content");
+  document.getElementById("mainContent").scrollIntoView({behavior:"smooth"});
+  createHearts();
+}
+
+function showLetter() {
+  const box = document.getElementById("letter");
+  box.classList.remove("hidden");
+  box.textContent = letter;
+}
+
+function newMessage() {
+  const msg = messages[Math.floor(Math.random() * messages.length)];
+  document.getElementById("randomMessage").textContent = msg;
+  createHearts();
+}
+
+function createHearts() {
+  for (let i=0; i<9; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.textContent = ["♡","♥","💗"][Math.floor(Math.random()*3)];
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (16+Math.random()*17)+"px";
+    heart.style.animationDuration = (3+Math.random()*3)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+  }
+}
+
+// Load memories
+document.getElementById("gallery").innerHTML = memories.map(m => `
+  <div class="memory">
+    <img src="${m.image}" alt="Our memory"
+      onerror="this.style.display='none';this.parentElement.style.background='#fce4eb';this.parentElement.style.minHeight='180px'">
+    <p>${m.caption}</p>
+  </div>
+`).join("");
+
+// Load timeline
+document.getElementById("timelineContent").innerHTML =
+timeline.map(t => `
+  <div class="event">
+    <small>${t.date}</small>
+    <h3>${t.title}</h3>
+    <p>${t.text}</p>
+  </div>
+`).join("");
+
+// Load promises
+document.getElementById("promiseContent").innerHTML =
+promises.map(p => `
+  <div class="promise">
+    <span>${p[0]}</span>
+    <p>${p[1]}</p>
+  </div>
+`).join("");
+
+</script>
+</body>
+</html>
